@@ -2,7 +2,7 @@
 
 Este projeto foi iniciado com [Create React App](https://github.com/facebook/create-react-app), e está disponível [aqui](https://b2w-pokemon-store.netlify.app/) para testar.
 
-O objetivo era criar pelo menos 3 lojas virtuais de Pokémon, com estilos diferentes, mas mantendo o mesmo comportamento, e que consumisse a API da [pokeapi](https://pokeapi.co/).
+O objetivo era criar pelo menos 3 lojas virtuais de Pokémon, com estilos diferentes, mas mantendo o mesmo comportamento, e que consumisse a API [pokeapi](https://pokeapi.co/).
 
 Os preços poderiam ser definidos de forma aleatória, mas deveriam manter consistência entre o valor exibido no catálogo e no carrinho.
 
