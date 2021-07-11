@@ -8,7 +8,7 @@ export const Container = styled.div`
   }
 
   .Toastify__progress-bar {
-    background-color: #ccc;
+    background-color: ${(props) => props.theme.colors.primary};
   }
 
   .Toastify__close-button {
