@@ -28,13 +28,18 @@ Os preços poderiam ser definidos de forma aleatória, mas deveriam manter consi
 ## Scripts
 
 Para instalar as dependências do projeto você pode executar:
+
     yarn install
+    
 ou
+
     npm install
 
 E para rodar a aplicação:
+
     yarn start
 ou
+
     npm start
 
 Em [http://localhost:3000](http://localhost:3000) você terá a aplicação disponível para usar na sua máquina.
