@@ -2,12 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   display: flex;
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 75px;
   padding: 12px 16px;
   background-color: ${(props) => props.theme.colors.primary};
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    z-index: 1;
 
   @media (max-width: 768px) {
     flex-direction: column;
