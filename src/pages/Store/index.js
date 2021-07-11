@@ -16,7 +16,7 @@ export function Store({ match }) {
   const filter = parseQueryString(search);
   const filterName = filter?.name?.toLowerCase();
   const currentType = match.params.type;
-
+  console.log('catalog: ', catalog);
   const catalogMemo = useMemo(
     () =>
       catalog
@@ -44,7 +44,7 @@ export function Store({ match }) {
     if (currentStoreType.value !== currentType) {
       getData(currentType, setCatalog);
     }
-  }, [currentType, currentStoreType.value, currentType]);
+  }, [currentType, currentStoreType.value, setCatalog]);
 
   useEffect(() => {
     const type = storeTypes.find(({ value }) => value === currentType);

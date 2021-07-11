@@ -36,7 +36,7 @@ export const getPokemonByName = (pokemonName) => {
 };
 
 export const getPokemonList = async (pokemonArray) => {
-  return await Promise.all(
+  return Promise.all(
     pokemonArray.map(async ({ pokemon }) => getPokemonByName(pokemon.name))
   );
 };
