@@ -6,7 +6,7 @@ import {
   dragonTheme,
   defaultTheme,
 } from '../styles/themes';
-import { StoresContext } from '../contexts/Stores/StoresContext';
+import { StoresContext } from '../contexts';
 
 export function useTheme() {
   const initialState = {
