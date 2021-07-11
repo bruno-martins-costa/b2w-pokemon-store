@@ -32,7 +32,12 @@ export function Modal({ children }) {
           transition={{ duration: 0.2 }}
         >
           <Background onClick={handleToggleModal} />
-          <ModalWindow>
+          <ModalWindow
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.2 }}
+            transition={{ duration: 0.2 }}
+          >
             <ModalHeader>
               <CloseButton onClick={handleToggleModal}>
                 <MdClear size={24} color='#000' />

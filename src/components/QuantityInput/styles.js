@@ -30,6 +30,10 @@ export const SubtractButton = styled.button`
     width: 44px;
     height: 44px;
   }
+
+  @media (max-width: 340px) {
+    width: 26px;
+  }
 `;
 
 export const AddButton = styled.button`
@@ -56,5 +60,9 @@ export const AddButton = styled.button`
   @media (max-width: 768px) {
     width: 44px;
     height: 44px;
+  }
+
+  @media (max-width: 340px) {
+    width: 26px;
   }
 `;

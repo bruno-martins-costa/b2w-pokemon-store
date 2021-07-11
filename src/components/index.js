@@ -4,7 +4,6 @@ import { Cart } from './Cart';
 import { CartButton } from './CartButton';
 import { CartFooter } from './CartFooter';
 import { CartHeader } from './CartHeader';
-import { CartItemCounter } from './CartItemCounter';
 import { Catalog } from './Catalog';
 import { CatalogLoading } from './CatalogLoading';
 import { Header } from './Header';
@@ -27,7 +26,6 @@ export {
   CartButton,
   CartFooter,
   CartHeader,
-  CartItemCounter,
   Catalog,
   CatalogLoading,
   Header,

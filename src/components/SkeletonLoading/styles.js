@@ -5,7 +5,7 @@ export const Skeleton = styled.div`
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
-  border-radius: 5px;
+  border-radius: 20px;
   background: linear-gradient(0.25turn, transparent, #fff, transparent),
     linear-gradient(#eee, #eee),
     radial-gradient(38px circle at 19px 19px, #eee 50%, transparent 51%),
@@ -13,7 +13,7 @@ export const Skeleton = styled.div`
   background-repeat: no-repeat;
   background-size: 420px 250px, 420px 180px, 100px 100px, 225px 30px;
   background-position: -420px 0, 0 0, 0px 190px, 50px 195px;
-  animation: loading 0.5s infinite;
+  animation: loading 1.5s infinite;
 
   @keyframes loading {
     to {

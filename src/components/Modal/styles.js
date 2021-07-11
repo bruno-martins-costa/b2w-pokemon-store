@@ -22,7 +22,7 @@ export const Background = styled.div`
   left: 0;
 `;
 
-export const ModalWindow = styled.div`
+export const ModalWindow = styled(motion.div)`
   min-width: 360px;
   min-height: fit-content;
   background-color: #fff;
@@ -30,6 +30,10 @@ export const ModalWindow = styled.div`
   z-index: 5;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+  @media (max-width: 480px) {
+    min-width: 320px;
+  }
 `;
 
 export const ModalHeader = styled.div`

@@ -7,6 +7,7 @@ import {
   formatCurrency,
   totalCartPriceReduce,
 } from '../../utils';
+import { AnimatePresence } from 'framer-motion';
 
 export function PurchaseMessage() {
   const { carts } = useContext(CartContext);
@@ -14,11 +15,22 @@ export function PurchaseMessage() {
   const total = totalCartPriceReduce(carts[currentStoreType.value]);
   const cashback = formatCurrency(computeCashback(total));
 
+  const framerOptions = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.5 },
+    exit: { opacity: 0 },
+  };
+
   return (
-    <Container>
-      <Title>{`Obrigado por comprar com a gente!`}</Title>
-      <Message>{`Você ganhou ${cashback} de volta na sua Pokéconta!`}</Message>
-      <GifAnimation src={pikachu} alt='Animação gif de um Pikachu feliz' />
-    </Container>
+    <AnimatePresence>
+      {!!total && (
+        <Container {...framerOptions}>
+          <Title>{`Obrigado por comprar com a gente!`}</Title>
+          <Message>{`Você ganhou ${cashback} de volta na sua Pokéconta!`}</Message>
+          <GifAnimation src={pikachu} alt='Animação gif de um Pikachu feliz' />
+        </Container>
+      )}
+    </AnimatePresence>
   );
 }

@@ -40,3 +40,10 @@ export const getPokemonList = async (pokemonArray) => {
     pokemonArray.map(async ({ pokemon }) => getPokemonByName(pokemon.name))
   );
 };
+
+export const getData = async (type, setter) => {
+  const data = await getAllPokemonByType(type);
+  const { pokemon: pokemonNames } = data;
+  const pokemonList = await getPokemonList(pokemonNames);
+  setter(pokemonList);
+};

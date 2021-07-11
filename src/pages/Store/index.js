@@ -1,10 +1,7 @@
-import { useContext, useMemo, useCallback, useEffect } from 'react';
+import { useContext, useMemo, useEffect } from 'react';
 import { CatalogContext, StoresContext, CartContext } from '../../contexts';
 import { useLocation } from 'react-router';
-import {
-  getAllPokemonByType,
-  getPokemonList,
-} from '../../services/apiServices';
+import { getData } from '../../services/apiServices';
 import { Catalog, CatalogLoading, Product } from '../../components';
 import { parseQueryString } from '../../utils';
 import { Container } from './styles';
@@ -12,7 +9,8 @@ import { Container } from './styles';
 export function Store({ match }) {
   const { catalog, isLoading, setCatalog } = useContext(CatalogContext);
   const { createItemIntoCartByType } = useContext(CartContext);
-  const { storeTypes, setCurrentStoreType } = useContext(StoresContext);
+  const { storeTypes, setCurrentStoreType, currentStoreType } =
+    useContext(StoresContext);
 
   const { search } = useLocation();
   const filter = parseQueryString(search);
@@ -42,16 +40,11 @@ export function Store({ match }) {
     [catalog, createItemIntoCartByType, filterName, currentType]
   );
 
-  const getData = useCallback(async () => {
-    const data = await getAllPokemonByType(currentType);
-    const { pokemon: pokemonNames } = data;
-    const pokemonList = await getPokemonList(pokemonNames);
-    setCatalog(pokemonList);
-  }, [currentType, setCatalog]);
-
   useEffect(() => {
-    getData();
-  }, [getData]);
+    if (currentStoreType.value !== currentType) {
+      getData(currentType, setCatalog);
+    }
+  }, [currentType, currentStoreType.value, currentType]);
 
   useEffect(() => {
     const type = storeTypes.find(({ value }) => value === currentType);
