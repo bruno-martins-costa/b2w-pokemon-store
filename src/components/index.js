@@ -1,3 +1,4 @@
+import { Backdrop } from './Backdrop';
 import { Button } from './Button';
 import { Cart } from './Cart';
 import { CartButton } from './CartButton';
@@ -17,8 +18,10 @@ import { QuantityInput } from './QuantityInput';
 import { RoutesListener } from './RoutesListener';
 import { SearchInput } from './SearchInput';
 import { SkeletonLoading } from './SkeletonLoading';
+import { Toast } from './Toast';
 
 export {
+  Backdrop,
   Button,
   Cart,
   CartButton,
@@ -38,4 +41,5 @@ export {
   RoutesListener,
   SearchInput,
   SkeletonLoading,
+  Toast,
 };

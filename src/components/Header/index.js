@@ -1,8 +1,6 @@
 import { useLocation } from 'react-router';
 import { Container } from './styles';
-import { Logo } from '../';
-import { SearchInput } from '../';
-import { CartButton } from '../';
+import { Logo, SearchInput, CartButton } from '../';
 
 export function Header() {
   const { pathname } = useLocation();

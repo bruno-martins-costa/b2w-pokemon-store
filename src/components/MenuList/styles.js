@@ -31,6 +31,10 @@ export const MenuListItems = styled.div`
   flex-wrap: wrap;
   border-radius: 5px;
   padding: 0 6px;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 export const MenuListFooter = styled.div`

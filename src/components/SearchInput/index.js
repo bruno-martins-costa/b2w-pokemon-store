@@ -1,4 +1,11 @@
-import { useState, useRef, useEffect, useContext, useCallback } from 'react';
+import {
+  useState,
+  useRef,
+  useEffect,
+  useContext,
+  useCallback,
+  useMemo,
+} from 'react';
 import { CatalogContext } from '../../contexts';
 import { useLocation } from 'react-router';
 import {
@@ -27,6 +34,20 @@ export function SearchInput() {
   const inputRef = useRef(null);
 
   const shouldMenuBeOpen = !!inputValue && !!options;
+
+  const backdropFramerOptions = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 0.4 },
+    exit: { opacity: 0 },
+  };
+
+  const dropdownFramerOptions = {
+    initial: { opacity: 0, marginTop: 56 },
+    animate: { opacity: 1, marginTop: 16 },
+    transition: { duration: 0.2 },
+    exit: { opacity: 0, marginTop: 56 },
+  };
 
   const clearInputAndOptions = () => {
     setInputValue('');
@@ -77,19 +98,8 @@ export function SearchInput() {
     };
   }, [handleClickOutside]);
 
-  return (
-    <Container>
-      <AnimatePresence>
-        {isMenuOpen && (
-          <Backdrop
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-            exit={{ opacity: 0 }}
-          />
-        )}
-      </AnimatePresence>
-
+  const inputContainerMemo = useMemo(
+    () => (
       <InputContainer isFocused={isFocused}>
         <SearchIconContainer>
           <HiOutlineSearch size={22} />
@@ -108,16 +118,21 @@ export function SearchInput() {
           </ClearIconContainer>
         )}
       </InputContainer>
+    ),
+    [isFocused, inputValue]
+  );
+
+  return (
+    <Container>
+      <AnimatePresence>
+        {isMenuOpen && <Backdrop {...backdropFramerOptions} />}
+      </AnimatePresence>
+
+      {inputContainerMemo}
 
       <AnimatePresence>
         {isMenuOpen && (
-          <DropdownMenu
-            ref={dropdownRef}
-            initial={{ opacity: 0, marginTop: 56 }}
-            animate={{ opacity: 1, marginTop: 16 }}
-            transition={{ duration: 0.2 }}
-            exit={{ opacity: 0, marginTop: 56 }}
-          >
+          <DropdownMenu ref={dropdownRef} {...dropdownFramerOptions}>
             <MenuList
               options={options.slice(0, 4)}
               totalOptions={options.length}

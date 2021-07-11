@@ -4,6 +4,7 @@ import { Name, Price } from '../Product/styles';
 
 export const OptionLink = styled(Link)`
   display: flex;
+  align-items: center;
   padding: 8px 16px;
   flex-basis: 50%;
   text-decoration: none;
@@ -12,10 +13,6 @@ export const OptionLink = styled(Link)`
 
   &:hover {
     color: ${(props) => props.theme.colors.primary};
-  }
-
-  @media (max-width: 540px) {
-    flex-basis: 49%;
   }
 `;
 
@@ -31,6 +28,11 @@ export const OptionAvatarContainer = styled.div`
   @media (max-width: 540px) {
     width: 60px;
     height: 60px;
+  }
+
+  @media (max-width: 480px) {
+    width: 35px;
+    height: 35px;
   }
 `;
 

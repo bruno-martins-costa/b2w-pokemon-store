@@ -54,7 +54,7 @@ export function Store({ match }) {
   }, [getData]);
 
   useEffect(() => {
-    const type = storeTypes.find((type) => type.value === currentType);
+    const type = storeTypes.find(({ value }) => value === currentType);
     setCurrentStoreType(type);
   }, [storeTypes, setCurrentStoreType, currentType]);
 

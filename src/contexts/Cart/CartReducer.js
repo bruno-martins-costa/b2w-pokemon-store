@@ -12,7 +12,7 @@ export function CartReducer(state, action) {
 
   const createItemIntoCartByType = () => {
     const pokemon = cartList.find(({ name }) => name === payload.name);
-    
+
     if (!pokemon) {
       return {
         ...state,

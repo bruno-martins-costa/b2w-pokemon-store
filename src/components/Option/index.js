@@ -1,10 +1,10 @@
 import { capitalizeString, formatCurrency } from '../../utils';
-import { Name } from '../Product/styles';
 import {
   OptionLink,
   OptionAvatarContainer,
   OptionAvatar,
   OptionInfo,
+  OptionName,
   OptionPrice,
 } from './styles';
 
@@ -18,7 +18,7 @@ export function Option({ option, type }) {
       </OptionAvatarContainer>
 
       <OptionInfo>
-        <Name>{capitalizeString(name)}</Name>
+        <OptionName>{capitalizeString(name)}</OptionName>
         <OptionPrice>{formatCurrency(price)}</OptionPrice>
       </OptionInfo>
     </OptionLink>

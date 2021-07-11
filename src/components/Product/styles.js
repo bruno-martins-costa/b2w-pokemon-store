@@ -50,6 +50,7 @@ export const Content = styled.div`
 
   @media (max-width: 768px) {
     button {
+      margin-top: 2px;
       padding: 16px;
       font-size: 16px;
     }

@@ -73,6 +73,13 @@ export const ValueInfo = styled.div`
 
 export const AvatarContainer = styled.div`
   position: relative;
+
+  .counter {
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    right: 5px;
+  }
 `;
 
 export const Avatar = styled.img`

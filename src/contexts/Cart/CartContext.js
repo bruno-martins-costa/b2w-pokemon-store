@@ -1,6 +1,8 @@
 import { createContext, useReducer, useCallback, useEffect } from 'react';
 import { CartReducer } from './CartReducer';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { toast } from 'react-toastify';
+import { capitalizeString } from '../../utils';
 
 export const CartContext = createContext();
 
@@ -29,6 +31,7 @@ export function CartProvider({ children }) {
 
   const createItemIntoCartByType = useCallback((item) => {
     dispatch({ type: 'CREATE_ITEM_INTO_CART_BY_TYPE', payload: item });
+    toast.success(`${capitalizeString(item.name)} foi adicionado ao carrinho!`);
   }, []);
 
   const addItemFromCart = useCallback(({ name, cartType }) => {
